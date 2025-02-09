@@ -1,8 +1,8 @@
 var username = prompt("Enter username: ");
 
-if (username === "Admin") {
+if (username === "Soumya") {
   var password = prompt("Enter password: ");
-  if (password === "TheMaster") {
+  if (password === "iloveu") {
     alert("Welcome");
   } else if (password === "" || password === null) {
     alert("Cancelled");
