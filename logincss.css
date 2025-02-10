@@ -3,13 +3,92 @@ html {
   height: 100%;
 }
 body {
-  background-color: rgb(112, 147, 252);
+  background-color: #fb404a;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: Quentin, sans-serif;
+}
+.hero-title {
+  margin-top: 60px;
+}
+.h-1 {
+  margin-top: 0px;
+  margin-bottom: 16px;
+  font-family: Editorialnew;
+  color: floralwhite;
+  font-size: 125px;
+  line-height: 120px;
+  font-weight: 400;
+  text-align: center;
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.headings {
-  padding-top: 200px;
+.section-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.hypno-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vw;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.hypno-bg {
+  position: relative;
+  width: 100%;
+  margin-top: 125px;
+}
+
+.heart {
+  position: relative;
+  width: 28vw;
+  margin-top: 0px;
+}
+
+.heart-wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
