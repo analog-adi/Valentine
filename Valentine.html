@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <link href="Valentine.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="valentine-container">
+        <div class="heart mb-4">
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <h1 class="valentine-message">
+            Happy Valentine's Day!
+        </h1>
+
+        <div class="valentine-question" id="valentineQuestion">
+            <h2>Will you be my Valentine? 💖</h2>
+            <div class="button-container">
+                <button id="yesButton" class="btn-valentine">
+                    Yes! <i class="fas fa-heart"></i>
+                </button>
+                <button id="noButton" class="btn-valentine btn-valentine-no">
+                    No <i class="fas fa-heart-broken"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('yesButton').addEventListener('click', function() {
+            // Hide the question and buttons
+            document.getElementById('valentineQuestion').innerHTML = '<h2>I love you my buu-buu  ❤️</h2>';
+
+            // Create lots of flying hearts
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => createHeart(), i * 100);
+            }
+        });
+
+        document.getElementById('noButton').addEventListener('click', function() {
+            const button = this;
+            // Make the No button run away when hovered
+            button.style.position = 'absolute';
+            button.style.left = Math.random() * (window.innerWidth - button.offsetWidth) + 'px';
+            button.style.top = Math.random() * (window.innerHeight - button.offsetHeight) + 'px';
+        });
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'flying-heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(heart);
+
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
