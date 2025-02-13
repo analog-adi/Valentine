@@ -110,6 +110,118 @@ body {
     }
 }
 
+/* Envelope styles */
+.envelope-container {
+    display: none;
+    position: relative;
+    width: min(300px, 90vw);
+    margin: 20px auto;
+    cursor: pointer;
+    perspective: 1000px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.envelope-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.envelope {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+    background-color: #f8c9d4;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.envelope.open {
+    transform: rotateX(180deg);
+}
+
+.envelope-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f8c9d4;
+    border: 2px solid #e391a3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1em;
+    color: var(--text-color);
+    border: 2px solid #e391a3;
+    overflow-y: auto;
+}
+
+.envelope-flap {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 50% solid transparent;
+    border-right: 50% solid transparent;
+    border-bottom: calc(100% / 2) solid #f8c9d4;
+    top: -98px;
+    left: 0;
+    transform-origin: bottom;
+    transition: transform 0.3s;
+    border-bottom-color: #e391a3;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.message {
+    font-family: 'Brush Script MT', cursive;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.5s;
+    font-size: 0.9em;
+    padding: 10px;
+    max-height: calc(100% - 20px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+.message::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.message::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.envelope.open .message {
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .valentine-message {
@@ -132,3 +244,5 @@ body {
         font-size: 1em;
     }
 }
+
+
