@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="Valentine.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <div class="valentine-container">
         <div class="heart mb-4">
@@ -28,24 +30,62 @@
                 </button>
             </div>
         </div>
-    </div>
-    <script>
-        document.getElementById('yesButton').addEventListener('click', function() {
-            // Hide the question and buttons
-            document.getElementById('valentineQuestion').innerHTML = '<h2>I love you my buu-buu  ❤️</h2>';
 
-            // Create lots of flying hearts
+        <div class="envelope-container" id="envelopeContainer">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-front">
+                    <i class="fas fa-heart" style="font-size: 2em; color: #ff1493;"></i>
+                </div>
+                <div class="envelope-back">
+                    <!-- 
+                        Customize your Valentine's message below! 
+                        Feel free to modify the text between the <div class="message"> tags.
+                        Use <br> for line breaks.
+                    -->
+                    <div class="message">
+                        Dear Valentine,<br><br>
+                        Your presence in my life fills every moment with joy and meaning.<br>
+                        You make my heart smile in ways words can't express.<br><br>
+                        With all my love,<br>
+                        ❤️
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('yesButton').addEventListener('click', function () {
+            // Hide the question and show a thank you message
+            document.getElementById('valentineQuestion').innerHTML = '<h2>Thank you! ❤️</h2>';
+
+            // Create flying hearts
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => createHeart(), i * 100);
             }
+
+            // Show the envelope after a short delay
+            setTimeout(() => {
+                const envelopeContainer = document.getElementById('envelopeContainer');
+                envelopeContainer.style.display = 'block';
+                // Add a small delay before adding the show class to trigger the animation
+                setTimeout(() => {
+                    envelopeContainer.classList.add('show');
+                }, 50);
+            }, 2000);
         });
 
-        document.getElementById('noButton').addEventListener('click', function() {
+        document.getElementById('noButton').addEventListener('click', function () {
             const button = this;
-            // Make the No button run away when hovered
             button.style.position = 'absolute';
             button.style.left = Math.random() * (window.innerWidth - button.offsetWidth) + 'px';
             button.style.top = Math.random() * (window.innerHeight - button.offsetHeight) + 'px';
+        });
+
+        // Add envelope click handler
+        document.getElementById('envelope').addEventListener('click', function () {
+            this.classList.toggle('open');
         });
 
         function createHeart() {
@@ -55,11 +95,11 @@
             heart.style.left = Math.random() * 100 + 'vw';
             document.body.appendChild(heart);
 
-            // Remove heart after animation
             setTimeout(() => {
                 heart.remove();
             }, 4000);
         }
     </script>
 </body>
+
 </html>
